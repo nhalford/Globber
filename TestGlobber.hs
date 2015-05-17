@@ -1,3 +1,8 @@
+-- Noah Halford
+-- CMSC 22311
+-- May 19, 2015
+-- This code is available at https://github.com/nhalford/Globber
+
 module Main (main) where
 
 import Test.Hspec
@@ -14,7 +19,7 @@ main = hspec $ describe "Testing Globber" $ do
     describe "question mark cases" $ do
         it "matches any single character" $
             matchGlob "?" "*" `shouldBe` True
-        it "matches any character at the beginning of a longer string" $
+        it "matches any character at the beginning of a string" $
             matchGlob "?s" "xs" `shouldBe` True
         it "matches any character within a longer string" $
             matchGlob "a?s" "axs" `shouldBe` True
@@ -23,9 +28,9 @@ main = hspec $ describe "Testing Globber" $ do
             matchGlob "*" "" `shouldBe` True
         it "matches longer strings" $
             matchGlob "*" "a longer string" `shouldBe` True
-        it "matches at least one character when followed by a question mark" $
+        it "matches at least one character if followed by ?" $
             matchGlob "*?" "abc" `shouldBe` True
-        it "does not match the empty string when followed by a question mark" $
+        it "does not match the empty string when followed by ?" $
             matchGlob "*?" "" `shouldBe` False
         it "should match up to escaped characters" $
             matchGlob "*\\?abc" "xyz?abc" `shouldBe` True

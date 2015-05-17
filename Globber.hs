@@ -1,3 +1,8 @@
+-- Noah Halford
+-- CMSC 22311
+-- May 19, 2015
+-- This code is available at https://github.com/nhalford/Globber
+
 module Globber (matchGlob) where
 
 type GlobPattern = String
